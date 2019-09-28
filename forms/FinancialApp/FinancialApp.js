@@ -14,12 +14,13 @@ function homeLoanPayment(amount, timeframe, interestRate){
 }
 
 
+let monthlyPayement = 0
+let continueComputing = "Yes"
+while(continueComputing == "Yes"){
 let calculator = prompt("What calculator do you want to use ? (Car loan or Home loan)")
 let amountUser = prompt("What is the amount of the loan ?")
 let timeframeUser = prompt("What is the timeframe ? In months for a car loan and in years (15 or 30) for a home loan")
 let interestRateUser = prompt("What is the interest rate (expressed in percentage) ?")
-
-let monthlyPayement = 0
 if(calculator == "Car loan"){
   monthlyPayement = carLoanPayment(amountUser,timeframeUser, interestRateUser)
   alert(`A car loan for $${amountUser} over ${timeframeUser} months at ${interestRateUser}% interest would have a monthly payment of $${monthlyPayement}.`)
@@ -38,4 +39,6 @@ else if(calculator == "Home loan"){
 }
 else{
     alert("Sorry, the calculator encoded is not correct")
+}
+continueComputing = prompt("Do you want to continue ? (Yes or No)")
 }
